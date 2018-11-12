@@ -2,7 +2,7 @@
   <section class="container">
     <h1 class="title">
       <span class="subtitle">🔀</span>
-      emojidna
+      emojidnaz
       <span class="subtitle">🔀</span>
     </h1>
     
