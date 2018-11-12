@@ -1,34 +1,42 @@
 <template>
   <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        emojidna
-      </h1>
-      <h2 class="subtitle">
-        🔀
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
+    <h1 class="title">
+      emojidna
+    </h1>
+    <h2 class="subtitle">🔀</h2>
+    <div class="dna-inputs-wrapper">
+      <input
+        v-model="leftStrand"
+        class="dna-input"
+      >
+      <input
+        v-model="rightStrand"
+        class="dna-input"
+      >
+    </div>
+    {{ leftStrand }} {{ rightStrand }}
+    <div class="dna-wrapper">
+      <DNA
+        :left="leftStrand"
+        :right="rightStrand"
+      />
     </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import DNA from '~/components/dna.vue'
 
 export default {
   components: {
-    Logo
-  }
+    DNA
+  },
+  data: function () {
+    return {
+      leftStrand: '🧠',
+      rightStrand: '🚂',
+    }
+  },
 }
 </script>
 
@@ -37,9 +45,16 @@ export default {
 .container {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.dna-wrapper {
+  height: 350px;
+  width: 70px;
+  display: inline-block;
 }
 
 .title {
@@ -50,17 +65,11 @@ export default {
   font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
+
 }
 
 .subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  transform: rotate(-90deg);
+  display: inline;
 }
 </style>
