@@ -6,19 +6,19 @@
       <span class="subtitle">🔀</span>
     </h1>
     
-    <div class="dna-inputs-wrapper">
-      <input
-        v-model="leftStrand"
-        class="dna-input"
-        aria-label="left emoji DNA strand input"
-      >
-      <input
-        v-model="rightStrand"
-        class="dna-input"
-        aria-label="right emoji DNA strand input"
-      >
-    </div>
     <div class="dna-wrapper">
+      <div class="dna-inputs-wrapper">
+        <input
+          v-model="leftStrand"
+          class="dna-input"
+          aria-label="left emoji DNA strand input"
+        >
+        <input
+          v-model="rightStrand"
+          class="dna-input"
+          aria-label="right emoji DNA strand input"
+        >
+      </div>
       <DNA
         :left="leftStrand"
         :right="rightStrand"
@@ -58,6 +58,12 @@ export default {
   height: 350px;
   width: 100px;
   display: inline-block;
+}
+
+.dna-inputs-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
 }
 
 .dna-input {

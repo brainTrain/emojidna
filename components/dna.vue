@@ -2,6 +2,7 @@
   <textarea
     v-model="renderedDNA"
     class="dna-container"
+    aria-label="rendered emoji DNA textarea"
   />
 </template>
 
@@ -103,6 +104,8 @@ export default {
   /*animation: turn 5s infinite;*/
   height: 100%;
   width: 100%;
+  border: none;
+  text-align: center;
 }
 
 @keyframes turn {
