@@ -1,20 +1,23 @@
 <template>
   <section class="container">
     <h1 class="title">
+      <span class="subtitle">🔀</span>
       emojidna
+      <span class="subtitle">🔀</span>
     </h1>
-    <h2 class="subtitle">🔀</h2>
+    
     <div class="dna-inputs-wrapper">
       <input
         v-model="leftStrand"
         class="dna-input"
+        aria-label="left emoji DNA strand input"
       >
       <input
         v-model="rightStrand"
         class="dna-input"
+        aria-label="right emoji DNA strand input"
       >
     </div>
-    {{ leftStrand }} {{ rightStrand }}
     <div class="dna-wrapper">
       <DNA
         :left="leftStrand"
@@ -46,7 +49,7 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
 }
@@ -57,19 +60,26 @@ export default {
   display: inline-block;
 }
 
+.dna-input {
+  border: none;
+  border-bottom: 2px solid #CCC;
+  width: 3rem;
+  font-size: 2rem;
+}
+
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
-  font-weight: 300;
-  font-size: 100px;
+  font-weight: 400;
+  font-size: 3rem;
   color: #35495e;
-  letter-spacing: 1px;
 
 }
 
 .subtitle {
   transform: rotate(-90deg);
-  display: inline;
+  font-size: 2rem;
+  display: inline-block;
 }
 </style>
