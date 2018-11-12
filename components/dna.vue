@@ -27,10 +27,9 @@ x　　 o
  x　 o
   xo
      o
-  o   x
-`;
-const dnaTemplate = `
- x　 o
+  o   x`;
+const dnaTemplate =
+`x　 o
   x o
 　 o
 　o x
@@ -47,8 +46,7 @@ x　　 o
  x　 o
 　x o
    o
-  o  x
-`;
+  o  x`;
 
 export default {
   name: 'DNA',
