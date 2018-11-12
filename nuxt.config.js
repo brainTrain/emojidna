@@ -28,7 +28,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     }
   },
 
