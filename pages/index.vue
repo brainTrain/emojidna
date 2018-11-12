@@ -30,15 +30,55 @@
 <script>
 import DNA from '~/components/dna.vue'
 
+const DEFAULT_LEFT_STRAND = '🧠';
+const DEFAULT_RIGHT_STRAND = '🚂';
+
 export default {
   components: {
     DNA
   },
   data: function () {
+    const {
+      query: {
+        leftStrand,
+        rightStrand,
+      } = {},
+    } = this.$route;
+
     return {
-      leftStrand: '🧠',
-      rightStrand: '🚂',
+      leftStrand: leftStrand || DEFAULT_LEFT_STRAND,
+      rightStrand: rightStrand || DEFAULT_RIGHT_STRAND,
     }
+  },
+  watch: {
+    leftStrand: {
+      handler: function (newLeft) {
+        this.setQueryParams();
+      },
+    },
+    rightStrand: {
+      handler: function (newRight) {
+        this.setQueryParams();
+      },
+    },
+  },
+  created: function () {
+    this.setQueryParams();
+  },
+  methods: {
+    setQueryParams: function () {
+      const {
+        leftStrand,
+        rightStrand,
+      } = this;
+      const query = {
+        ...this.$route.query,
+        leftStrand,
+        rightStrand,
+      };
+
+      this.$router.push({ query });
+    },
   },
 }
 </script>
