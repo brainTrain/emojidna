@@ -53,7 +53,7 @@ export default {
 
 .dna-wrapper {
   height: 350px;
-  width: 70px;
+  width: 100px;
   display: inline-block;
 }
 
