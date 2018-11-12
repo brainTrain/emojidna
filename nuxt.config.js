@@ -2,11 +2,14 @@ const pkg = require('./package')
 
 // lovingly lifted from: https://nuxtjs.org/faq/github-pages/#deploying-to-github-pages-for-repository
 // only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
+/*
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/<repository-name>'
   }
 } : {}
+*/
+const routerBase = {}
 
 console.log('routerBase', routerBase)
 
