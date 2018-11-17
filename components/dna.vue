@@ -9,6 +9,7 @@
 <script>
 const LEFT_CONST = 'x';
 const RIGHT_CONST = 'o';
+const IDEAL_SPACE_CONST = '　';
 const dnaTemplateTwitter =
 `x　  o
    xo
@@ -45,6 +46,26 @@ x　　 o
 x　　 o
  x　 o
 　x o
+　　o
+　o　x`;
+
+const dnaIdealTemplate =
+`x   o
+  x o
+　 o
+　o x
+ o　 x
+o　　 x
+o　　 x
+ o　 x
+  o x
+　 x
+　x o
+ x　 o
+x　　 o
+x　　 o
+ x　 o
+　x o
    o
   o  x`;
 
@@ -63,7 +84,7 @@ export default {
   data: function () {
     return {
       renderedDNA: '',
-    }
+    };
   },
   watch: {
     left: {

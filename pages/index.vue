@@ -39,11 +39,9 @@ export default {
   },
   data: function () {
     const {
-      query: {
-        leftStrand,
-        rightStrand,
-      } = {},
-    } = this.$route;
+      leftStrand,
+      rightStrand,
+    } = this.getStrands();
 
     return {
       leftStrand: leftStrand || DEFAULT_LEFT_STRAND,
@@ -51,6 +49,12 @@ export default {
     }
   },
   watch: {
+    '$route.query.leftStrand': function () {
+      this.setStrands();
+    },
+    '$route.query.rightStrand': function () {
+      this.setStrands();
+    },
     leftStrand: {
       handler: function (newLeft) {
         this.setQueryParams();
@@ -66,6 +70,28 @@ export default {
     this.setQueryParams();
   },
   methods: {
+    getStrands: function () {
+      const {
+        query: {
+          leftStrand,
+          rightStrand,
+        } = {},
+      } = this.$route;
+
+      return {
+        leftStrand,
+        rightStrand,
+      };
+    },
+    setStrands: function () {
+      const {
+        leftStrand,
+        rightStrand,
+      } = this.getStrands();
+
+      this.leftStrand = leftStrand;
+      this.rightStrand = rightStrand;
+    },
     setQueryParams: function () {
       const {
         leftStrand,
