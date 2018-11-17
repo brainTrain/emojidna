@@ -74,11 +74,11 @@ export default {
   props: {
     left: {
       type: String,
-      default: 'x',
+      default: '',
     },
     right: {
       type: String,
-      default: 'o',
+      default: '',
     },
   },
   data: function () {
