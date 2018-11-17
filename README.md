@@ -41,4 +41,13 @@ $ npm start
 $ npm run generate
 ```
 
+## github pages generating/publishing
+``` bash
+# generate github pages static project
+$ npm run generate:gh-pages
+
+# deploy github pages static project
+$ npm run deploy
+```
+
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
