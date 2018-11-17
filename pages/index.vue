@@ -41,7 +41,7 @@ export default {
     const {
       leftStrand,
       rightStrand,
-    } = this.getStrands();
+    } = this.getStrandsFromUrl();
 
     return {
       leftStrand: leftStrand || DEFAULT_LEFT_STRAND,
@@ -70,7 +70,7 @@ export default {
     this.setQueryParams();
   },
   methods: {
-    getStrands: function () {
+    getStrandsFromUrl: function () {
       const {
         query: {
           leftStrand,
@@ -87,7 +87,7 @@ export default {
       const {
         leftStrand,
         rightStrand,
-      } = this.getStrands();
+      } = this.getStrandsFromUrl();
 
       this.leftStrand = leftStrand;
       this.rightStrand = rightStrand;
