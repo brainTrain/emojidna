@@ -80,6 +80,10 @@ export default {
       type: String,
       default: '',
     },
+    handleGetRenderedDNA: {
+      type: Function,
+      default: () => console.warn('handleGetRenderedDNA() is not implemented'),
+    },
   },
   data: function () {
     return {
@@ -91,12 +95,14 @@ export default {
       immediate: true,
       handler: function (newLeft) {
         this.drawDNA(newLeft, this.right);
+        this.getRenderedDNA();
       },
     },
     right: {
       immediate: true,
       handler: function (newRight) {
         this.drawDNA(this.left, newRight);
+        this.getRenderedDNA();
       },
     },
   },
@@ -113,6 +119,9 @@ export default {
       });
 
       this.renderedDNA = newDNATemplate;
+    },
+    getRenderedDNA: function () {
+      this.$emit('dna-rendered', this.renderedDNA);
     },
   },
 }

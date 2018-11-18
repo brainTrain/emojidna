@@ -22,20 +22,43 @@
       <DNA
         :left="leftStrand"
         :right="rightStrand"
+        @dna-rendered="handleRenderedDNA"
       />
+      <button
+        v-clipboard:copy="renderedDNA"
+        v-clipboard:success="handleCopySuccess"
+        v-clipboard:error="handleCopyError"
+      >
+        Copy DNA
+      </button>
     </div>
   </section>
 </template>
 
 <script>
+import Vue from 'vue';
+import vueClipboard from 'vue-clipboard2';
+import Noty from 'noty';
+
 import DNA from '~/components/dna.vue'
+
+import '~/assets/noty.css';
+import '~/assets/noty-semanticui.css';
+
+// TODO: research/decide if this should be in the global nuxt /plugins dir
+Vue.use(vueClipboard);
 
 const DEFAULT_LEFT_STRAND = '🧠';
 const DEFAULT_RIGHT_STRAND = '🚂';
+const NOTY_BASE_CONFIG = {
+  theme: 'semanticui',
+  timeout: 500,
+  progressBar: false,
+};
 
 export default {
   components: {
-    DNA
+    DNA,
   },
   data: function () {
     const {
@@ -46,13 +69,14 @@ export default {
     return {
       leftStrand: leftStrand || DEFAULT_LEFT_STRAND,
       rightStrand: rightStrand || DEFAULT_RIGHT_STRAND,
+      renderedDNA: '',
     }
   },
   watch: {
-    '$route.query.leftStrand': function () {
+    '$route.query.leftStrand': function (leftStrand) {
       this.setStrands();
     },
-    '$route.query.rightStrand': function () {
+    '$route.query.rightStrand': function (rightStrand) {
       this.setStrands();
     },
     leftStrand: {
@@ -104,6 +128,24 @@ export default {
       };
 
       this.$router.push({ query });
+    },
+    handleRenderedDNA: function (renderedDNA) {
+      this.renderedDNA = renderedDNA;
+    },
+    handleCopySuccess: function () {
+      console.log('handleCopySuccess')
+      new Noty({
+        ...NOTY_BASE_CONFIG,
+        text: 'Successfully copied Emoji DNA!!!1 \\o/',
+        type: 'success',
+      }).show();
+    },
+    handleCopyError: function () {
+      new Noty({
+        ...NOTY_BASE_CONFIG,
+        text: 'Error copying Emoji DNA.. :\'(',
+        type: 'error',
+      }).show();
     },
   },
 }
