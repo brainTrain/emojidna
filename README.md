@@ -43,6 +43,12 @@ $ npm run generate
 
 ## github pages generating/publishing
 ``` bash
+# build project
+$ npm run build
+
+# generate static project
+$ npm run generate
+
 # generate github pages static project
 $ npm run generate:gh-pages
 

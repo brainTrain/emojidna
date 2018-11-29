@@ -11,22 +11,22 @@ const LEFT_CONST = 'x';
 const RIGHT_CONST = 'o';
 const IDEAL_SPACE_CONST = '　';
 const dnaTemplateTwitter =
-`x　  o
+`x　o
    xo
 　 o
-  ox
- o　 x
+　ox
+ o　x
 o　　x
 o　　x
  o　x
    ox
-    x
-  x o
- x　  o
-x　　  o
+　  x
+　x o
+ x　 o
+x　　 o
 x　　 o
  x　 o
-  xo
+　xo
      o
   o   x`;
 const dnaTemplate =
