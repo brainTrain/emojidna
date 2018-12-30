@@ -10,64 +10,26 @@
 const LEFT_CONST = 'x';
 const RIGHT_CONST = 'o';
 const IDEAL_SPACE_CONST = '　';
-const dnaTemplateTwitter =
-`x　o
-   xo
-　 o
-　ox
- o　x
-o　　x
-o　　x
- o　x
-   ox
-　  x
-　x o
- x　 o
-x　　 o
-x　　 o
- x　 o
-　xo
-     o
-  o   x`;
-const dnaTemplate =
-`x　 o
-  x o
-　 o
-　o x
- o　 x
-o　　 x
-o　　 x
- o　 x
-  o x
-　 x
-　x o
- x　 o
-x　　 o
-x　　 o
- x　 o
-　x o
-　　o
-　o　x`;
 
-const dnaIdealTemplate =
-`x   o
-  x o
-　 o
-　o x
- o　 x
-o　　 x
-o　　 x
- o　 x
-  o x
-　 x
-　x o
- x　 o
-x　　 o
-x　　 o
- x　 o
-　x o
-   o
-  o  x`;
+const dnaTemplateTwitter =
+`${LEFT_CONST}　${RIGHT_CONST}
+   ${LEFT_CONST}${RIGHT_CONST}
+　 ${RIGHT_CONST}
+　${RIGHT_CONST}${LEFT_CONST}
+ ${RIGHT_CONST}　${LEFT_CONST}
+${RIGHT_CONST}　　${LEFT_CONST}
+${RIGHT_CONST}　　${LEFT_CONST}
+ ${RIGHT_CONST}　${LEFT_CONST}
+   ${RIGHT_CONST}${LEFT_CONST}
+　  ${LEFT_CONST}
+　${LEFT_CONST} ${RIGHT_CONST}
+ ${LEFT_CONST}　 ${RIGHT_CONST}
+${LEFT_CONST}　　${RIGHT_CONST}
+${LEFT_CONST}　　 ${RIGHT_CONST}
+ ${LEFT_CONST}　  ${RIGHT_CONST}
+　${LEFT_CONST}${RIGHT_CONST}
+     ${RIGHT_CONST}
+  ${RIGHT_CONST}    ${LEFT_CONST}`;
 
 export default {
   name: 'DNA',
